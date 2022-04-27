@@ -37,7 +37,7 @@ class QuizQuestionsActivity : AppCompatActivity() {
         Log.i("QuestionsList size is", "${questionsList.size}")
 
         for(i in questionsList){
-            Log.e("Question", i.question) // individual question of the questions list. Class
+            Log.e("Question", i.question)
         }
     }
 }
