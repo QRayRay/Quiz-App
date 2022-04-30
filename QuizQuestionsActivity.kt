@@ -3,6 +3,7 @@ package com.example.quizapp
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -12,8 +13,6 @@ import androidx.core.content.ContextCompat
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
-    private var mCurrentPosition: Int = 1
-
     private var progressBar: ProgressBar?=null
     private var tvProgress: TextView? = null
     private var tvQuestion:TextView? = null
@@ -22,20 +21,13 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var tvOptionTwo:TextView? = null
     private var tvOptionThree:TextView? = null
     private var tvOptionFour:TextView? = null
-
-
     private var mCurrentPosition: Int = 1 // Default and the first question position
     private var mQuestionsList: ArrayList<Question>? = null
-
-
     private var mSelectedOptionPosition: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_quiz_questions)
-
 
         progressBar=findViewById(R.id.progressBar)
         tvProgress = findViewById(R.id.tv_progress)
@@ -45,6 +37,27 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tvOptionTwo = findViewById(R.id.tv_option_two)
         tvOptionThree = findViewById(R.id.tv_option_three)
         tvOptionFour = findViewById(R.id.tv_option_four)
+
+        val questionsList = Constants.getQuestions()
+        Log.i("QuestionList size is ", "${questionsList.size}")
+
+        for(i in questionsList) {
+            Log.e("Questions", i.question)
+        }
+
+        var currentPosition = 1
+        val question : Question = questionsList[mCurrentPosition - 1]
+        ivImage?.setImageResource(question.image)
+        progressBar?.progress = currentPosition
+        tvProgress?.text = "$currentPosition / ${progressBar?.max}"
+        tvQuestion?.text = question.question
+        tvOptionOne?.text = question.optionOne
+        tvOptionTwo?.text = question.optionTwo
+        tvOptionThree?.text = question.optionThree
+        tvOptionFour?.text = question.optionFour
+
+    }
+
 
         mQuestionsList = Constants.getQuestions()
 
@@ -69,11 +82,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         // Now set the current question and the options in the UI
         tvQuestion?.text = question.question
-        ivImage?.setImageResource(question.image)
-        tvOptionOne?.text = question.optionOne
-        tvOptionTwo?.text = question.optionTwo
-        tvOptionThree?.text = question.optionThree
-        tvOptionFour?.text = question.optionFour
+
     }
 
     override fun onClick(p0: View?) {
@@ -200,4 +209,3 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 )
             }
         }
-    }
