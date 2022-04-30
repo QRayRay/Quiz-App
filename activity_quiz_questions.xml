@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:contentDescription="image"
+            android:contentDescription="@string/image"
             tools:src="@drawable/ic_flag_of_germany" />
 
         <LinearLayout
@@ -73,7 +71,7 @@
             android:padding="15dp"
             android:textColor="#7A8089"
             android:textSize="18sp"
-            tools:text="Apple" />
+            tools:text="Test 1" />
 
         <TextView
             android:id="@+id/tv_option_two"
@@ -88,7 +86,7 @@
             android:padding="15dp"
             android:textColor="#7A8089"
             android:textSize="18sp"
-            tools:text="Google" />
+            tools:text="Text 2" />
 
         <TextView
             android:id="@+id/tv_option_three"
@@ -103,7 +101,7 @@
             android:padding="15dp"
             android:textColor="#7A8089"
             android:textSize="18sp"
-            tools:text="Android Inc." />
+            tools:text="Tech 3" />
 
         <TextView
             android:id="@+id/tv_option_four"
@@ -118,17 +116,19 @@
             android:padding="15dp"
             android:textColor="#7A8089"
             android:textSize="18sp"
-            tools:text="Nokia" />
+            tools:text="Tool 4" />
 
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/colorPrimary"
-            android:text="SUBMIT"
+            android:background="@color/purple_500"
+            android:text="@string/submit"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
+
     </LinearLayout>
+
 </ScrollView>
