@@ -13,6 +13,8 @@ import androidx.core.content.ContextCompat
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
+    // update code for private var and R.id 's 
+    
     private var progressBar: ProgressBar?=null
     private var tvProgress: TextView? = null
     private var tvQuestion:TextView? = null
